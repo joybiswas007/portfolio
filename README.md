@@ -35,10 +35,7 @@ If you'd like to run this project locally, follow these steps:
     ```bash
     cd portfolio
     ```
-3. **Open the project**
-```bash
-Open the index.html file in your browser.
-```
+3. Open the `index.html` file in your browser.
 
 ## 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
