@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffdd57;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Add a subtle underline effect on hover */
+header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffdd57;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Responsive Header */
+@media (max-width: 600px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h1, section h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+/* Introduction Section */
+#intro .intro-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#intro .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #333;
+}
+
+#intro .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#intro .intro-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#intro .intro-text p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+#intro-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#intro-links ul li {
+    flex: 1 1 calc(50% - 10px);
+    margin-bottom: 0;
+}
+
+#intro-links ul li a {
+    color: #333;
+    text-decoration: underline;
+}
+
+#intro-links ul li a:hover {
+    color: #000;
+}
+
+/* Skills Section */
+#skills-section {
+    margin-top: 20px;
+}
+
+#skills-section h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    color: #444;
+}
+
+#skills-section ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+#skills-section ul li {
+    text-decoration: underline;
+}
+
+/* Projects Section */
+#project-list li {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#project-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#project-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+#project-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background: none;
+    color: #333;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer span {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #intro .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #intro-links ul li {
+        flex: 1 1 100%;
+    }
+
+    #skills-section ul {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
