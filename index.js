@@ -1,10 +1,11 @@
 // Data for skills, projects, and links
 const skillsData = {
-  languages: ["Golang", "Node.js", "JavaScript", "SQL"],
+  languages: ["Golang", "JavaScript", "SQL"],
   frameworks: ["Express.js", "React.js", "Gin", "Fiber"],
   tools: [
     "Docker",
     "Git",
+    "Node.js",
     "PostgreSQL",
     "MongoDB",
     "SQLite",
@@ -25,6 +26,34 @@ const skillsData = {
     "Continuous Integration / Continuous Deployment (CI/CD)",
   ],
 };
+
+// Add education details
+const educationList = document.getElementById("education-list");
+const education = [
+  {
+    degree: "Diploma in Computer Science & Engineering",
+    institution: "Faridpur Polytechnic Institute",
+    year: "2017 - 2022",
+    description: "CGPA: 3.45 / 4",
+  },
+  {
+    degree: "SSC",
+    institution: "Rajbari Govt. High School",
+    year: "2012 - 2017",
+    description: "GPA: 4.5 / 5 | Group: Science",
+  },
+];
+
+education.forEach((edu) => {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `
+        <h3>${edu.degree}</h3>
+        <p class="institution">${edu.institution}</p>
+        <p class="year">Year: ${edu.year}</p>
+        <p>${edu.description}</p>
+    `;
+  educationList.appendChild(listItem);
+});
 
 const projects = [
   {
