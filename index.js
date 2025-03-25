@@ -62,6 +62,11 @@ const projects = [
     url: "https://github.com/joybiswas007/remote-wv-go",
   },
   {
+    title: "wifipass-go",
+    description: "A simple cli tool written in Golang to retrieve WiFi credentials and generate QR codes for easy sharing.",
+    url: "https://github.com/joybiswas007/wifipass-go",
+  },
+  {
     title: "torrents-api",
     description: "Unofficial public torrent trackers API written in Node.js.",
     url: "https://github.com/joybiswas007/torrents-api",
