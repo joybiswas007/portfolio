@@ -1,98 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Portfolio of Joy Biswas, a Backend Developer specializing in APIs, CLIs and web development."
-        />
-        <title>Joy Biswas - Backend Developer</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
 
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Portfolio of Joy Biswas - Backend Developer specializing in Golang and JavaScript">
+	<meta name="keywords" content="backend developer, golang, javascript, portfolio, open-source">
+	<meta name="author" content="Joy Biswas">
+	<title>Joy Biswas | Backend Developer</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
 
-        <main>
-            <!-- Introduction Section -->
-            <section id="intro">
-                <div class="intro-content">
-                    <div class="profile-picture">
-                        <img
-                            src="profile.png"
-                            alt="Joy Biswas"
-                            class="profile-img"
-                        />
-                    </div>
-                    <div class="intro-text">
-                        <h1>Joy Biswas</h1>
-                        <p>Backend Developer | Open-Source Enthusiast</p>
-                        <div id="intro-links"></div>
-                    </div>
-                </div>
-            </section>
+<body>
+	<!-- Theme toggle button -->
+	<button id="theme-toggle" aria-label="Toggle light/dark mode">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+			stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="5"></circle>
+			<line x1="12" y1="1" x2="12" y2="3"></line>
+			<line x1="12" y1="21" x2="12" y2="23"></line>
+			<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+			<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+			<line x1="1" y1="12" x2="3" y2="12"></line>
+			<line x1="21" y1="12" x2="23" y2="12"></line>
+			<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+			<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+		</svg>
+	</button>
 
-            <!-- About Section -->
-            <section id="about">
-                <h2>About Me</h2>
-                <p>
-                    I am <b>Joy Biswas</b>, a backend developer who is always
-                    committed to my work and goals. I am a fast learner and
-                    passionate about implementing and launching new projects and
-                    ideas. I am also very fond of open-source software and
-                    always trying to find a way to contribute to them.
-                </p>
-                <div id="skills-section"></div>
-            </section>
+	<!-- Header with navigation -->
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
 
-            <!-- Education Section -->
-            <section id="education">
-                <h2>Education</h2>
-                <ul id="education-list">
-                    <!-- Education items will be dynamically added here -->
-                </ul>
-            </section>
+	<main>
+		<!-- Hero Section -->
+		<section id="home" class="section hero">
+			<div class="hero-content">
+				<div class="profile-picture">
+					<img src="profile.png" alt="Joy Biswas" loading="lazy">
+				</div>
+				<div class="hero-text">
+					<h1>Joy Biswas</h1>
+					<p class="subtitle">Backend Developer & Open-Source Enthusiast</p>
+					<div class="social-links" id="social-links"></div>
+				</div>
+			</div>
+		</section>
 
-            <!-- Projects Section -->
-            <section id="projects">
-                <h2>Projects</h2>
-                <p>Here are some of the projects I have worked on:</p>
-                <ul id="project-list"></ul>
-                <p>
-                    <a
-                        href="https://github.com/joybiswas007?tab=repositories"
-                        target="_blank"
-                        >More projects...</a
-                    >
-                </p>
-            </section>
+		<!-- About Section -->
+		<section id="about" class="section">
+			<h2>About Me</h2>
+			<div class="about-content">
+				<p>I am Joy Biswas, who is always committed to his works and goals. I am also a fast
+					learner and passionate about implementing and launching new projects and ideas.
+					I am also very fond of open-source software and always trying to find a way to
+					contribute to them.</p>
 
-            <!-- Contact Section -->
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>
-                    If you'd like to get in touch, feel free to reach out
-                    through the contact form or connect with me via email.
-                </p>
-            </section>
-        </main>
+				<div class="education">
+					<h3>Education</h3>
+					<ul id="education-list"></ul>
+				</div>
+			</div>
+		</section>
 
-        <footer>
-            <p>
-                &copy; <span id="year"></span> Joy Biswas. All rights reserved.
-            </p>
-        </footer>
+		<!-- Skills Section -->
+		<section id="skills" class="section">
+			<h2>Skills</h2>
+			<div id="skills-container"></div>
+		</section>
 
-        <script src="index.js"></script>
-    </body>
+		<!-- Projects Section -->
+		<section id="projects" class="section">
+			<h2>Projects</h2>
+			<p>Some of my recent open-source work:</p>
+			<ul class="project-list" id="project-list"></ul>
+			<a href="https://github.com/joybiswas007?tab=repositories" target="_blank"
+				rel="noopener noreferrer" class="more-link">View more projects →</a>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section">
+			<h2>Get In Touch</h2>
+			<p>Feel free to reach out for collaborations or just to say hello!</p>
+			<div class="contact-links" id="contact-links"></div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; <span id="year"></span> Joy Biswas. All rights reserved.</p>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+
 </html>

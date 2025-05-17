@@ -1,0 +1,178 @@
+// Portfolio data
+const portfolioData = {
+	skills: {
+		languages: ["Golang", "JavaScript", "SQL"],
+		frameworks: ["Express.js", "React.js", "Gin", "Fiber"],
+		tools: [
+			"Docker", "Git", "Node.js", "PostgreSQL", "MongoDB",
+			"SQLite", "GCP", "Cobra", "Linux", "Manjaro",
+			"Arch", "Ubuntu", "i3wm", "KDE", "Vim", "NeoVim", "Postman"
+		],
+		practices: [
+			"Test-Driven Development (TDD)",
+			"Agile Methodology",
+			"Continuous Integration / Continuous Deployment (CI/CD)"
+		]
+	},
+	education: [
+		{
+			degree: "Diploma in Computer Science & Engineering",
+			institution: "Faridpur Polytechnic Institute",
+			year: "2017 - 2022",
+			description: "CGPA: 3.45 / 4"
+		},
+		{
+			degree: "SSC",
+			institution: "Rajbari Govt. High School",
+			year: "2012 - 2017",
+			description: "GPA: 4.5 / 5 | Group: Science"
+		}
+	],
+	projects: [
+		{
+			title: "remote-wv-go",
+			description: "Serve your local Widevine CDM as remote API.",
+			url: "https://github.com/joybiswas007/remote-wv-go"
+		},
+		{
+			title: "wifipass-go",
+			description: "A simple cli tool written in Golang to retrieve WiFi credentials and generate QR codes for easy sharing.",
+			url: "https://github.com/joybiswas007/wifipass-go"
+		},
+		{
+			title: "torrents-api",
+			description: "Unofficial public torrent trackers API written in Node.js.",
+			url: "https://github.com/joybiswas007/torrents-api"
+		},
+		{
+			title: "node-midjourney-telegram-bot",
+			description: "A Telegram bot created in Node.js using the unofficial Midjourney Node.js client.",
+			url: "https://github.com/joybiswas007/node-midjourney-telegram-bot"
+		},
+		{
+			title: "rutracker-api",
+			description: "Unofficial RuTracker API written in Node.js.",
+			url: "https://github.com/joybiswas007/rutracker-api"
+		}
+	],
+	contact: [
+		{
+			url: "mailto:joybiswas040701@gmail.com",
+			text: "Email Me"
+		},
+		{
+			url: "https://www.linkedin.com/in/joybiswasl337",
+			text: "LinkedIn",
+			type: "linkedin"
+		},
+		{
+			url: "https://github.com/joybiswas007",
+			text: "GitHub"
+		},
+		{
+			url: "https://drive.google.com/file/d/1nCJ7b1poa4p5Sevwh1NyCZck0DpvJVUM/view?usp=sharing",
+			text: "Resume"
+		}
+	]
+};
+
+// DOM Elements
+const themeToggle = document.getElementById('theme-toggle');
+const skillsContainer = document.getElementById('skills-container');
+const educationList = document.getElementById('education-list');
+const projectList = document.getElementById('project-list');
+const socialLinks = document.getElementById('social-links');
+const contactLinks = document.getElementById('contact-links');
+const yearElement = document.getElementById('year');
+
+// Theme Management
+function toggleTheme() {
+	const currentTheme = document.documentElement.getAttribute('data-theme');
+	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+	document.documentElement.setAttribute('data-theme', newTheme);
+	localStorage.setItem('theme', newTheme);
+}
+
+function initializeTheme() {
+	const savedTheme = localStorage.getItem('theme');
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+	// Default to dark mode if no preference saved
+	document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+}
+
+// Generate Skills Section
+function generateSkills() {
+	for (const [category, skills] of Object.entries(portfolioData.skills)) {
+		const categoryElement = document.createElement('div');
+		categoryElement.className = 'skill-category';
+
+		const title = category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+		categoryElement.innerHTML = `
+            <h3>${title}</h3>
+            <ul>
+                ${skills.map(skill => `<li>${skill}</li>`).join('')}
+            </ul>
+        `;
+
+		skillsContainer.appendChild(categoryElement);
+	}
+}
+
+// Generate Education Section
+function generateEducation() {
+	portfolioData.education.forEach(edu => {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = `
+            <h3>${edu.degree}</h3>
+            <p class="institution">${edu.institution}</p>
+            <p class="year">${edu.year}</p>
+            <p>${edu.description}</p>
+        `;
+		educationList.appendChild(listItem);
+	});
+}
+
+// Generate Projects Section
+function generateProjects() {
+	portfolioData.projects.forEach(project => {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = `
+            <a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>
+            <p>${project.description}</p>
+        `;
+		projectList.appendChild(listItem);
+	});
+}
+
+// Generate Social Links
+function generateSocialLinks() {
+	portfolioData.contact.forEach(link => {
+		const linkElement = document.createElement('a');
+		linkElement.href = link.url;
+		linkElement.textContent = link.text;
+		linkElement.target = '_blank';
+		linkElement.rel = 'noopener noreferrer';
+		socialLinks.appendChild(linkElement);
+	});
+}
+
+// Set Current Year in Footer
+function setCurrentYear() {
+	yearElement.textContent = new Date().getFullYear();
+}
+
+// Initialize Portfolio
+function initPortfolio() {
+	initializeTheme();
+	themeToggle.addEventListener('click', toggleTheme);
+
+	generateSkills();
+	generateEducation();
+	generateProjects();
+	generateSocialLinks();
+	setCurrentYear();
+}
+
+// Load portfolio when DOM is ready
+document.addEventListener('DOMContentLoaded', initPortfolio);
