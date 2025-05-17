@@ -1,19 +1,11 @@
 // Portfolio data
 const portfolioData = {
-	skills: {
-		languages: ["Golang", "JavaScript", "SQL"],
-		frameworks: ["Express.js", "React.js", "Gin", "Fiber"],
-		tools: [
-			"Docker", "Git", "Node.js", "PostgreSQL", "MongoDB",
-			"SQLite", "GCP", "Cobra", "Linux", "Manjaro",
-			"Arch", "Ubuntu", "i3wm", "KDE", "Vim", "NeoVim", "Postman"
-		],
-		practices: [
-			"Test-Driven Development (TDD)",
-			"Agile Methodology",
-			"Continuous Integration / Continuous Deployment (CI/CD)"
-		]
-	},
+	skills: [
+		"Golang", "JavaScript", "SQL",
+		"Express.js", "React.js", "Gin", "Fiber",
+		"Docker", "Git", "Node.js", "PostgreSQL", "MongoDB",
+		"SQLite", "Linux System Administration",
+	],
 	education: [
 		{
 			degree: "Diploma in Computer Science & Engineering",
@@ -103,21 +95,16 @@ function initializeTheme() {
 
 // Generate Skills Section
 function generateSkills() {
-	for (const [category, skills] of Object.entries(portfolioData.skills)) {
-		const categoryElement = document.createElement('div');
-		categoryElement.className = 'skill-category';
+	const skillsContainer = document.getElementById('skills-container');
 
-		const title = category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-		categoryElement.innerHTML = `
-            <h3>${title}</h3>
-            <ul>
-                ${skills.map(skill => `<li>${skill}</li>`).join('')}
-            </ul>
-        `;
-
-		skillsContainer.appendChild(categoryElement);
-	}
+	portfolioData.skills.forEach(skill => {
+		const skillElement = document.createElement('span');
+		skillElement.className = 'skill-item';
+		skillElement.textContent = skill;
+		skillsContainer.appendChild(skillElement);
+	});
 }
+
 
 // Generate Education Section
 function generateEducation() {
