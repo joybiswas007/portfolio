@@ -69,7 +69,6 @@ const portfolioData = {
 };
 
 // DOM Elements
-const themeToggle = document.getElementById('theme-toggle');
 const skillsContainer = document.getElementById('skills-container');
 const educationList = document.getElementById('education-list');
 const projectList = document.getElementById('project-list');
@@ -77,21 +76,6 @@ const socialLinks = document.getElementById('social-links');
 const contactLinks = document.getElementById('contact-links');
 const yearElement = document.getElementById('year');
 
-// Theme Management
-function toggleTheme() {
-	const currentTheme = document.documentElement.getAttribute('data-theme');
-	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-	document.documentElement.setAttribute('data-theme', newTheme);
-	localStorage.setItem('theme', newTheme);
-}
-
-function initializeTheme() {
-	const savedTheme = localStorage.getItem('theme');
-	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-	// Default to dark mode if no preference saved
-	document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
-}
 
 // Generate Skills Section
 function generateSkills() {
@@ -151,9 +135,6 @@ function setCurrentYear() {
 
 // Initialize Portfolio
 function initPortfolio() {
-	initializeTheme();
-	themeToggle.addEventListener('click', toggleTheme);
-
 	generateSkills();
 	generateEducation();
 	generateProjects();
