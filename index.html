@@ -10,7 +10,8 @@
 	<title>Joy Biswas | Backend Developer</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 </head>
 
@@ -19,11 +20,11 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="#home">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="#home">~/home</a></li>
+				<li><a href="#about">~/about</a></li>
+				<li><a href="#skills">~/skills</a></li>
+				<li><a href="#projects">~/projects</a></li>
+				<li><a href="#contact">~/contact</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -36,8 +37,10 @@
 					<img src="profile.png" alt="Joy Biswas" loading="lazy">
 				</div>
 				<div class="hero-text">
-					<h1>Joy Biswas</h1>
-					<p class="subtitle">Backend Developer & Open-Source Enthusiast</p>
+					<h1><span class="prompt">$</span> whoami</h1>
+					<p class="output">Joy Biswas</p>
+					<p class="subtitle"><span class="prompt">></span> Backend Developer &
+						Open-Source Enthusiast</p>
 					<div class="social-links" id="social-links"></div>
 				</div>
 			</div>
@@ -45,15 +48,16 @@
 
 		<!-- About Section -->
 		<section id="about" class="section">
-			<h2>About Me</h2>
+			<h2><span class="prompt">$</span> cat ./about.txt</h2>
 			<div class="about-content">
-				<p>I am Joy Biswas, who is always committed to his works and goals. I am also a fast
+				<p class="output"><span class="prompt">></span> I am Joy Biswas, who is always committed
+					to his works and goals. I am also a fast
 					learner and passionate about implementing and launching new projects and ideas.
 					I am also very fond of open-source software and always trying to find a way to
 					contribute to them.</p>
 
 				<div class="education">
-					<h3>Education</h3>
+					<h3><span class="prompt">$</span> ls ./education</h3>
 					<ul id="education-list"></ul>
 				</div>
 			</div>
@@ -61,28 +65,31 @@
 
 		<!-- Skills Section -->
 		<section id="skills" class="section">
-			<h2>Skills</h2>
+			<h2><span class="prompt">$</span> ls ./skills</h2>
 			<div id="skills-container"></div>
 		</section>
 
 		<!-- Projects Section -->
 		<section id="projects" class="section">
-			<h2>Projects</h2>
-			<p>Some of my recent open-source work:</p>
+			<h2><span class="prompt">$</span> cd ./projects</h2>
+			<p class="output"><span class="prompt">></span> Some of my recent open-source work:</p>
 			<ul class="project-list" id="project-list"></ul>
 			<a href="https://github.com/joybiswas007?tab=repositories" target="_blank"
-				rel="noopener noreferrer" class="more-link">View more projects →</a>
+				rel="noopener noreferrer" class="more-link"><span class="prompt">></span>
+				view_more_projects.sh</a>
 		</section>
 
 		<!-- Contact Section -->
 		<section id="contact" class="section">
-			<h2>Get In Touch</h2>
-			<p>Feel free to reach out for collaborations or just to say hello!</p>
+			<h2><span class="prompt">$</span> ./contact.sh</h2>
+			<p class="output"><span class="prompt">></span> Feel free to reach out for collaborations or
+				just to say hello!</p>
+			<div class="contact-links" id="contact-links"></div>
 		</section>
 	</main>
 
 	<footer>
-		<p>&copy; <span id="year"></span> Joy Biswas</p>
+		<p><span class="prompt">[↑]</span> <span id="year"></span> ~/Joy Biswas</p>
 	</footer>
 
 	<script src="script.js"></script>
