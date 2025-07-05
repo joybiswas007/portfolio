@@ -1,12 +1,11 @@
 import { useMemo, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Title from "./components/Title";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Home from "@/components/Home";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 
 const getDesignTokens = (mode) => ({
   palette: {
@@ -27,7 +26,6 @@ const getDesignTokens = (mode) => ({
     fontFamily: "'Inter', 'Roboto', 'Arial', sans-serif",
   },
 });
-const { VITE_FULLNAME: fullname } = import.meta.env;
 
 const App = () => {
   const [mode, setMode] = useState("light");
@@ -37,7 +35,6 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Title title={fullname} />
       <CssBaseline />
       <Router>
         <Box

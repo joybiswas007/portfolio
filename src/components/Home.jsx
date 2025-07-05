@@ -1,7 +1,6 @@
 import { Container, Typography, Stack, Button } from "@mui/material";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
 import { SiReaddotcv } from "react-icons/si";
-import Title from "../components/Title";
 
 const {
   VITE_FULLNAME: fullname,
@@ -46,7 +45,7 @@ const Home = () => (
       justifyContent: "center",
     }}
   >
-    <Title title={fullname} />
+    <title>{fullname}</title>
     <Stack alignItems="center" spacing={3}>
       <Typography
         variant="h3"

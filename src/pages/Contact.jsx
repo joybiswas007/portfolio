@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import { SiUpwork, SiFiverr } from "react-icons/si";
-import Title from "../components/Title";
 
 const {
   VITE_USERNAME: uname,
@@ -61,7 +60,7 @@ const Contact = () => (
       gap: 4,
     }}
   >
-    <Title title={`Contact - ${uname}`} />
+    <title>{`Contact - ${uname}`}</title>
 
     <Typography
       variant="h2"

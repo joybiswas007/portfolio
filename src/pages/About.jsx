@@ -1,6 +1,5 @@
 import { Container, Typography, Divider } from "@mui/material";
-import Skills from "../components/Skills";
-import Title from "../components/Title";
+import Skills from "@/components/Skills";
 
 const {
   VITE_PROFESSION: profession,
@@ -22,7 +21,7 @@ const About = () => (
       gap: 3,
     }}
   >
-    <Title title={`About - ${uname}`} />
+    <title>{`About - ${uname}`}</title>
     <Typography
       variant="h2"
       sx={{
