@@ -2,12 +2,12 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton,
   Button,
   Stack,
+  IconButton,
 } from "@mui/material";
-import { CiLight, CiDark } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { CiLight, CiDark } from "react-icons/ci";
 
 const { VITE_USERNAME: uname, VITE_BLOG: blog } = import.meta.env;
 
@@ -15,27 +15,30 @@ const navLinks = [
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
-
-// Conditionally add Blog as an external link if VITE_BLOG is set
-if (blog) {
-  navLinks.push({ label: "Blog", to: blog, external: true });
-}
+if (blog) navLinks.push({ label: "Blog", to: blog, external: true });
 
 const Header = ({ mode, onToggleTheme }) => (
   <AppBar
     position="static"
-    color="transparent"
+    sx={{
+      background: "transparent",
+      boxShadow: "none",
+    }}
     elevation={0}
-    sx={{ borderBottom: 1, borderColor: "divider" }}
   >
     <Toolbar>
       <Typography
         variant="h6"
-        sx={{ fontWeight: 700, letterSpacing: 1, flexGrow: 1 }}
+        sx={{
+          fontWeight: 700,
+          letterSpacing: 1,
+          flexGrow: 1,
+          color: "text.primary",
+          fontFamily: "inherit",
+          textDecoration: "none",
+        }}
         component={Link}
         to="/"
-        color="inherit"
-        style={{ textDecoration: "none" }}
       >
         {uname}
       </Typography>
@@ -47,16 +50,17 @@ const Header = ({ mode, onToggleTheme }) => (
               href={link.to}
               target="_blank"
               rel="noopener"
-              color="inherit"
               sx={{
-                textTransform: "none",
+                color: "text.primary",
+                fontFamily: "inherit",
                 fontWeight: 500,
                 fontSize: 16,
                 px: 1.5,
                 borderRadius: 2,
+                textTransform: "none",
                 "&:hover": {
-                  bgcolor: mode === "dark" ? "primary.dark" : "#E3F2FD",
-                  color: mode === "dark" ? "#fff" : "primary.main",
+                  color: "primary.main",
+                  background: "transparent",
                 },
               }}
               aria-label={link.label}
@@ -68,16 +72,17 @@ const Header = ({ mode, onToggleTheme }) => (
               key={link.label}
               component={Link}
               to={link.to}
-              color="inherit"
               sx={{
-                textTransform: "none",
+                color: "text.primary",
+                fontFamily: "inherit",
                 fontWeight: 500,
                 fontSize: 16,
                 px: 1.5,
                 borderRadius: 2,
+                textTransform: "none",
                 "&:hover": {
-                  bgcolor: mode === "dark" ? "primary.dark" : "#E3F2FD",
-                  color: mode === "dark" ? "#fff" : "primary.main",
+                  color: "primary.main",
+                  background: "transparent",
                 },
               }}
               aria-label={link.label}
@@ -89,19 +94,11 @@ const Header = ({ mode, onToggleTheme }) => (
       </Stack>
       <IconButton
         onClick={onToggleTheme}
-        color="inherit"
         aria-label="Toggle dark/light mode"
         size="small"
         sx={{
           ml: 1,
-          border: 1,
-          borderColor: "divider",
-          bgcolor: "background.paper",
-          "&:hover": {
-            bgcolor: "primary.main",
-            color: "#fff",
-          },
-          transition: "background 0.2s",
+          color: mode === "light" ? "#1976d2" : "#b5e3ff",
         }}
       >
         {mode === "dark" ? <CiLight /> : <CiDark />}

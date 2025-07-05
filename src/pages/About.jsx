@@ -1,11 +1,8 @@
 import { Container, Typography, Divider } from "@mui/material";
 import Skills from "@/components/Skills";
+import SEO from "../components/SEO";
 
-const {
-  VITE_PROFESSION: profession,
-  VITE_USERNAME: uname,
-  VITE_DESCRIPTION: description,
-} = import.meta.env;
+const { VITE_DESCRIPTION: description } = import.meta.env;
 
 const About = () => (
   <Container
@@ -17,20 +14,22 @@ const About = () => (
       px: { xs: 2, md: 6 },
       display: "flex",
       flexDirection: "column",
-      alignItems: "flex-start",
+      alignItems: "center",
       gap: 3,
     }}
   >
-    <title>{`About - ${uname}`}</title>
+    <SEO title="About" />
     <Typography
       variant="h2"
       sx={{
         fontWeight: 800,
-        letterSpacing: "-0.03em",
+        letterSpacing: "0.04em",
         mb: 1,
         color: "text.primary",
         fontSize: { xs: 32, md: 48 },
         lineHeight: 1.1,
+        fontFamily: "inherit",
+        textAlign: "center",
       }}
     >
       About Me
@@ -44,25 +43,15 @@ const About = () => (
       }}
     />
     <Typography
-      variant="h5"
-      sx={{
-        fontWeight: 500,
-        color: "text.secondary",
-        mb: 2,
-        fontSize: { xs: 20, md: 24 },
-        lineHeight: 1.4,
-      }}
-    >
-      {profession}
-    </Typography>
-    <Typography
       variant="body1"
       sx={{
-        color: "text.secondary",
+        color: "text.primary",
         fontSize: { xs: 16, md: 18 },
         mb: 2,
         lineHeight: 1.7,
         maxWidth: 720,
+        fontFamily: "inherit",
+        textAlign: "center",
       }}
     >
       {description}

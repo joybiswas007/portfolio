@@ -1,6 +1,7 @@
 import { Container, Typography, Stack, Button } from "@mui/material";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
 import { SiReaddotcv } from "react-icons/si";
+import SEO from "./SEO";
 
 const {
   VITE_FULLNAME: fullname,
@@ -13,26 +14,10 @@ const {
 } = import.meta.env;
 
 const socialLinks = [
-  {
-    label: "GitHub",
-    href: github,
-    icon: <FaGithub />,
-  },
-  {
-    label: "LinkedIn",
-    href: linkedIn,
-    icon: <FaLinkedin />,
-  },
-  {
-    label: "Email",
-    href: `mailto:${email}`,
-    icon: <FaEnvelope />,
-  },
-  {
-    label: "Resume",
-    href: resume,
-    icon: <SiReaddotcv />,
-  },
+  { label: "GitHub", href: github, icon: <FaGithub /> },
+  { label: "LinkedIn", href: linkedIn, icon: <FaLinkedin /> },
+  { label: "Email", href: `mailto:${email}`, icon: <FaEnvelope /> },
+  { label: "Resume", href: resume, icon: <SiReaddotcv /> },
 ];
 
 const Home = () => (
@@ -43,58 +28,81 @@ const Home = () => (
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
+      alignItems: "center",
+      gap: 3,
     }}
   >
-    <title>{fullname}</title>
-    <Stack alignItems="center" spacing={3}>
-      <Typography
-        variant="h3"
-        sx={{
-          fontWeight: 700,
-          letterSpacing: "-0.01em",
-        }}
-        tabIndex={0}
-        aria-label="Name"
-      >
-        {fullname}
-      </Typography>
-      <Typography
-        variant="h6"
-        color="text.secondary"
-        aria-label="Profession"
-        sx={{ fontWeight: 500 }}
-      >
-        {profession}
-      </Typography>
-      <Typography
-        variant="body1"
-        color="text.secondary"
-        aria-label="Description"
-        sx={{
-          fontSize: { xs: 16, md: 18 },
-          textAlign: "center",
-          maxWidth: 500,
-        }}
-      >
-        {description}
-      </Typography>
-      <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
-        {socialLinks.map((link) => (
-          <Button
-            key={link.label}
-            sx={{ textTransform: "capitalize" }}
-            variant="outlined"
-            color="primary"
-            startIcon={link.icon}
-            href={link.href}
-            target={link.label === "Resume" ? "_blank" : "_self"}
-            rel="noopener"
-            aria-label={link.label}
-          >
-            {link.label}
-          </Button>
-        ))}
-      </Stack>
+    <SEO />
+    <Typography
+      variant="h3"
+      sx={{
+        fontWeight: 700,
+        letterSpacing: "0.04em",
+        textAlign: "center",
+        fontFamily: "inherit",
+      }}
+      tabIndex={0}
+      aria-label="Name"
+    >
+      {fullname}
+    </Typography>
+    <Typography
+      variant="h6"
+      sx={{
+        color: "text.primary",
+        fontWeight: 500,
+        fontFamily: "inherit",
+      }}
+      aria-label="Profession"
+    >
+      {profession}
+    </Typography>
+    <Typography
+      variant="body1"
+      sx={{
+        color: "text.primary",
+        fontSize: { xs: 16, md: 18 },
+        textAlign: "center",
+        maxWidth: 500,
+        fontFamily: "inherit",
+      }}
+      aria-label="Description"
+    >
+      {description}
+    </Typography>
+    <Stack
+      direction={{ xs: "column", sm: "row" }}
+      spacing={2}
+      sx={{ mt: 3, width: "100%" }}
+      justifyContent="center"
+      alignItems="center"
+    >
+      {socialLinks.map((link) => (
+        <Button
+          key={link.label}
+          variant="outlined"
+          startIcon={link.icon}
+          href={link.href}
+          target={link.label === "Resume" ? "_blank" : "_self"}
+          rel="noopener"
+          aria-label={link.label}
+          sx={{
+            borderColor: "primary.main",
+            color: "primary.main",
+            fontFamily: "inherit",
+            fontWeight: 700,
+            width: { xs: "100%", sm: "auto" },
+            justifyContent: "flex-start",
+            "&:hover": {
+              borderColor: "text.primary",
+              color: "text.primary",
+              background: "transparent",
+            },
+          }}
+        >
+          {link.label}
+        </Button>
+      ))}
     </Stack>
   </Container>
 );

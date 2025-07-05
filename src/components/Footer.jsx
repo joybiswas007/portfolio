@@ -5,9 +5,19 @@ const { VITE_FULLNAME: fullname } = import.meta.env;
 const Footer = () => (
   <Box
     component="footer"
-    sx={{ py: 2, textAlign: "center", borderTop: 1, borderColor: "divider" }}
+    sx={{
+      py: 2,
+      textAlign: "center",
+      background: "transparent",
+    }}
   >
-    <Typography variant="body2" color="text.secondary">
+    <Typography
+      variant="body2"
+      sx={{
+        color: "text.secondary",
+        fontFamily: "inherit",
+      }}
+    >
       © {new Date().getFullYear()} {fullname}
     </Typography>
   </Box>

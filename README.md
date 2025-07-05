@@ -17,7 +17,7 @@ This is my personal portfolio website built with **React** and **Material UI**.
 
 3. **Configure environment variables**
    ```bash
-   cp .env.example .env
+   cp example.env .env
    ```
    Edit `.env` and fill in your personal information.
 

@@ -2,7 +2,6 @@ import { Container, Typography, Stack, Tooltip, useTheme } from "@mui/material";
 import {
   SiGo,
   SiJavascript,
-  SiPhp,
   SiReact,
   SiNodedotjs,
   SiGin,
@@ -25,7 +24,6 @@ import {
 const skills = [
   { name: "Go", icon: SiGo },
   { name: "JavaScript", icon: SiJavascript },
-  { name: "PHP", icon: SiPhp },
   { name: "React", icon: SiReact },
   { name: "Node.js", icon: SiNodedotjs },
   { name: "Gin", icon: SiGin },

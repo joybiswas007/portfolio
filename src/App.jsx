@@ -6,29 +6,36 @@ import Footer from "@/components/Footer";
 import Home from "@/components/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import NotFound from "./components/NotFound";
 
 const getDesignTokens = (mode) => ({
   palette: {
     mode,
     ...(mode === "light"
       ? {
-          primary: { main: "#007FFF" },
-          background: { default: "#F7F7F8", paper: "#fff" },
-          text: { primary: "#1A2027", secondary: "#3E5060" },
+          primary: { main: "#1976d2" },
+          background: { default: "#f6f8fa", paper: "#fff" },
+          text: {
+            primary: "#181c20",
+            secondary: "#1976d2",
+          },
+          contrastThreshold: 4.5,
         }
       : {
-          primary: { main: "#3399FF" },
-          background: { default: "#1A2027", paper: "#23272F" },
-          text: { primary: "#F3F6F9", secondary: "#B2BAC2" },
+          primary: { main: "#7ec7e6" },
+          background: { default: "#181c20", paper: "#181c20" },
+          text: { primary: "#b5e3ff", secondary: "#8ecae6" },
         }),
   },
   typography: {
-    fontFamily: "'Inter', 'Roboto', 'Arial', sans-serif",
+    fontFamily: `'Fira Mono', 'Hack', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace`,
+    fontWeightBold: 700,
+    fontWeightRegular: 400,
   },
 });
 
 const App = () => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   const handleToggleTheme = () =>
     setMode((prev) => (prev === "light" ? "dark" : "light"));
@@ -52,6 +59,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Box>
           <Footer />

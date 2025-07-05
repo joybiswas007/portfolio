@@ -4,12 +4,13 @@ import {
   Stack,
   Link as MuiLink,
   Divider,
+  Box,
 } from "@mui/material";
 import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import { SiUpwork, SiFiverr } from "react-icons/si";
+import SEO from "../components/SEO";
 
 const {
-  VITE_USERNAME: uname,
   VITE_GITHUB: github,
   VITE_EMAIL: email,
   VITE_LINKEDIN: linkedIn,
@@ -18,31 +19,36 @@ const {
   VITE_FIVERR: fiverr,
 } = import.meta.env;
 
+const iconBgColor = (theme) =>
+  theme.palette.mode === "light" ? "#e3f2fd" : "#22313a";
+const iconColor = (theme) =>
+  theme.palette.mode === "light" ? "#1976d2" : "#7ec7e6";
+
 const socialLinks = [
   {
     label: "GitHub",
     href: github,
-    icon: <FaGithub size={18} aria-label="GitHub" />,
+    icon: FaGithub,
   },
   {
     label: "LinkedIn",
     href: linkedIn,
-    icon: <FaLinkedin size={18} aria-label="LinkedIn" />,
+    icon: FaLinkedin,
   },
   {
     label: "Twitter",
     href: twitter,
-    icon: <FaXTwitter size={18} aria-label="Twitter" />,
+    icon: FaXTwitter,
   },
   {
     label: "Upwork",
     href: upwork,
-    icon: <SiUpwork size={22} aria-label="Upwork" />,
+    icon: SiUpwork,
   },
   {
     label: "Fiverr",
     href: fiverr,
-    icon: <SiFiverr size={28} style={{ minWidth: 28 }} aria-label="Fiverr" />,
+    icon: SiFiverr,
   },
 ];
 
@@ -60,17 +66,18 @@ const Contact = () => (
       gap: 4,
     }}
   >
-    <title>{`Contact - ${uname}`}</title>
+    <SEO title="Contact" />
 
     <Typography
       variant="h2"
       sx={{
         fontWeight: 800,
-        letterSpacing: "-0.03em",
+        letterSpacing: "0.04em",
         color: "text.primary",
         fontSize: { xs: 32, md: 40 },
         lineHeight: 1.1,
         mb: 1,
+        fontFamily: "inherit",
       }}
     >
       Contact
@@ -86,8 +93,13 @@ const Contact = () => (
 
     <Typography
       variant="body1"
-      color="text.secondary"
-      sx={{ textAlign: "center", mb: 2, fontSize: { xs: 16, md: 18 } }}
+      sx={{
+        color: "text.primary",
+        textAlign: "center",
+        mb: 2,
+        fontSize: { xs: 16, md: 18 },
+        fontFamily: "inherit",
+      }}
     >
       If you want to talk about technology, collaborate on a project, or just
       say hello,
@@ -99,42 +111,87 @@ const Contact = () => (
     <Stack spacing={2} alignItems="center" sx={{ width: "100%" }}>
       <MuiLink
         href={`mailto:${email}`}
-        color="inherit"
         underline="hover"
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 1,
+          gap: 1.5,
           fontWeight: 500,
           fontSize: 18,
+          color: "primary.main",
+          fontFamily: "inherit",
+          "&:hover": {
+            color: "text.primary",
+          },
         }}
         aria-label="Email"
       >
-        <FaEnvelope size={18} aria-label="Email" />
+        <Box
+          sx={{
+            width: 38,
+            height: 38,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            bgcolor: (theme) => iconBgColor(theme),
+            color: (theme) => iconColor(theme),
+            borderRadius: "50%",
+            mr: 1,
+          }}
+        >
+          <FaEnvelope size={20} aria-label="Email" />
+        </Box>
         {email}
       </MuiLink>
-      <Stack direction="row" spacing={3} justifyContent="center">
-        {socialLinks.map((link) => (
-          <MuiLink
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener"
-            aria-label={link.label}
-            color="inherit"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 0.5,
-              fontWeight: 500,
-              fontSize: 17,
-            }}
-            underline="hover"
-          >
-            {link.icon}
-            {link.label}
-          </MuiLink>
-        ))}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ width: "100%" }}
+      >
+        {socialLinks.map((link) => {
+          const Icon = link.icon;
+          return (
+            <MuiLink
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={link.label}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontWeight: 500,
+                fontSize: 17,
+                color: "primary.main",
+                fontFamily: "inherit",
+                "&:hover": {
+                  color: "text.primary",
+                },
+              }}
+              underline="hover"
+            >
+              <Box
+                sx={{
+                  width: 38,
+                  height: 38,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  bgcolor: (theme) => iconBgColor(theme),
+                  color: (theme) => iconColor(theme),
+                  borderRadius: "50%",
+                  mr: 1,
+                }}
+              >
+                <Icon size={20} aria-label={link.label} />
+              </Box>
+              {link.label}
+            </MuiLink>
+          );
+        })}
       </Stack>
     </Stack>
   </Container>
